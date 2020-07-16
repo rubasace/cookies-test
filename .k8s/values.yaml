@@ -2,7 +2,7 @@ ingress:
   enabled: true
   domain: nasvigo.com
   subdomain: cookies
-
+  oauth2Enabled: true
 deployment:
   image: registry.nasvigo.com/v2/notech/cookies-demo
   containerPort: 80
