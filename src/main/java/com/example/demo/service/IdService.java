@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.UserInfo;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -13,12 +14,14 @@ import java.net.URI;
 @Service
 public class IdService {
 
+    private static final String USER_INFO_PATH = "/oauth2/userinfo";
+
     private final RestTemplate restTemplate;
     private final URI url;
 
-    public IdService(final RestTemplateBuilder builder) {
+    public IdService(final RestTemplateBuilder builder, @Value("${auth.proxy.url}") final String authUrl) {
 
-        this.url = URI.create("https://auth.nasvigo.com/oauth2/userinfo");
+        this.url = URI.create(authUrl + USER_INFO_PATH);
         this.restTemplate = builder
                 .build();
     }
