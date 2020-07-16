@@ -5,6 +5,6 @@ ingress:
   oauth2Enabled: true
 deployment:
   image: registry.nasvigo.com/v2/notech/cookies-demo
-  containerPort: 80
+  containerPort: 8080
   imagePullSecrets:
     - regcred
