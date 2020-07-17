@@ -28,7 +28,7 @@ public class IdService {
 
     public UserInfo getEmail(final String oauth2) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Cookie", "_oauth2_proxy=" + oauth2);
+//        headers.add("Cookie", "_oauth2_proxy=" + oauth2);
         RequestEntity<String> requestEntity = new RequestEntity<>(headers, HttpMethod.GET, url);
         return restTemplate.exchange(requestEntity, UserInfo.class).getBody();
     }

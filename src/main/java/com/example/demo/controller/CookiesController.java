@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.UserInfo;
 import com.example.demo.service.IdService;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +18,9 @@ public class CookiesController {
     }
 
     @GetMapping
-    public String oauth(@CookieValue("_oauth2_proxy") final String oauth2) {
+    public UserInfo oauth(@CookieValue("_oauth2_proxy") final String oauth2) {
 
-        return idService.getEmail(oauth2).getEmail();
+        return idService.getEmail(oauth2);
 
     }
 
